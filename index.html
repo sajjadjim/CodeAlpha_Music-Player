@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AetherPlayer - Ultimate Glassmorphic Music Experience</title>
+  <meta name="description" content="A premium, glassmorphic interactive music player featuring dynamic visualizers, offline synthesizer beats, ambient glow theme transitions, and smooth animations.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Dynamic Ambient Glow Backdrops -->
+  <div class="ambient-glow">
+    <div class="glow-orb orb-1" id="orb-1"></div>
+    <div class="glow-orb orb-2" id="orb-2"></div>
+    <div class="glow-orb orb-3" id="orb-3"></div>
+  </div>
+
+  <!-- Main Application Wrapper -->
+  <main class="player-wrapper">
+    
+    <!-- Music Player Card -->
+    <div class="player-card" id="playerCard">
+      
+      <!-- Top Navigation Header -->
+      <header class="player-header">
+        <div class="app-logo">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+          <span class="logo-text">AETHER<span>PLAYER</span></span>
+        </div>
+        
+        <div class="header-actions">
+          <!-- Audio Source Toggle (Web MP3 vs Synth Fallback) -->
+          <button class="action-btn mode-toggle-btn" id="modeToggleBtn" title="Toggle Offline Ambient Synth / Online Tracks">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-synth">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span class="btn-tooltip">Synth Mode</span>
+          </button>
+          
+          <button class="action-btn playlist-toggle-btn" id="playlistToggleBtn" title="Toggle Playlist Drawer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6"></line>
+              <line x1="8" y1="12" x2="21" y2="12"></line>
+              <line x1="8" y1="18" x2="21" y2="18"></line>
+              <line x1="3" y1="6" x2="3.01" y2="6"></line>
+              <line x1="3" y1="12" x2="3.01" y2="12"></line>
+              <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Center Body - Art & Information -->
+      <section class="player-body">
+        
+        <!-- Rotating Cover Art & Equalizer Overlay -->
+        <div class="art-container">
+          <div class="art-shadow" id="artShadow"></div>
+          <div class="art-frame" id="artFrame">
+            <img src="assets/cover1.png" alt="Cover Art" id="coverArt" class="cover-image">
+            <div class="vinyl-overlay"></div>
+          </div>
+          
+          <!-- Floating Music Note Animations (added dynamically in JS, but we place containers) -->
+          <div class="floating-notes-container" id="floatingNotes"></div>
+        </div>
+
+        <!-- Song Metadata -->
+        <div class="song-meta">
+          <h1 class="song-title" id="songTitle">Neon Odyssey</h1>
+          <p class="song-artist" id="songArtist">Aether Drive</p>
+          <div class="song-tag-badge" id="songGenre">SYNTHWAVE</div>
+        </div>
+
+        <!-- Premium Real-time Equalizer Wave Visualizer -->
+        <div class="visualizer-container" id="visualizerContainer">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+          <span class="bar bar-3"></span>
+          <span class="bar bar-4"></span>
+          <span class="bar bar-5"></span>
+          <span class="bar bar-6"></span>
+          <span class="bar bar-7"></span>
+          <span class="bar bar-8"></span>
+          <span class="bar bar-9"></span>
+          <span class="bar bar-10"></span>
+          <span class="bar bar-11"></span>
+          <span class="bar bar-12"></span>
+          <span class="bar bar-13"></span>
+          <span class="bar bar-14"></span>
+          <span class="bar bar-15"></span>
+        </div>
+
+      </section>
+
+      <!-- Footer Control Panel -->
+      <section class="player-controls">
+        
+        <!-- Progress Bar and Timestamps -->
+        <div class="progress-section">
+          <div class="time-display current-time" id="currentTime">0:00</div>
+          <div class="progress-bar-wrapper">
+            <input type="range" class="progress-slider" id="progressSlider" min="0" max="100" value="0">
+            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-hover-tooltip" id="progressTooltip">0:00</div>
+          </div>
+          <div class="time-display total-duration" id="totalDuration">0:00</div>
+        </div>
+
+        <!-- Media Playback Buttons -->
+        <div class="main-buttons">
+          
+          <!-- Shuffle Button -->
+          <button class="control-btn mini-btn" id="shuffleBtn" title="Shuffle Tracks">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 3 21 3 21 8"></polyline>
+              <line x1="4" y1="20" x2="21" y2="3"></line>
+              <polyline points="21 16 21 21 16 21"></polyline>
+              <line x1="15" y1="15" x2="21" y2="21"></line>
+              <line x1="4" y1="4" x2="9" y2="9"></line>
+            </svg>
+          </button>
+
+          <!-- Previous Button -->
+          <button class="control-btn" id="prevBtn" title="Previous Track">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="19 20 9 12 19 4 19 20"></polygon>
+              <line x1="5" y1="4" x2="5" y2="20" stroke="currentColor" stroke-width="3"></line>
+            </svg>
+          </button>
+
+          <!-- Play/Pause Button -->
+          <button class="control-btn play-btn" id="playBtn" title="Play / Pause">
+            <!-- Play SVG -->
+            <svg viewBox="0 0 24 24" fill="currentColor" class="play-icon" id="playIcon">
+              <polygon points="6 3 20 12 6 21 6 3"></polygon>
+            </svg>
+            <!-- Pause SVG (hidden by default) -->
+            <svg viewBox="0 0 24 24" fill="currentColor" class="pause-icon hidden" id="pauseIcon">
+              <rect x="5" y="4" width="4" height="16" rx="1"></rect>
+              <rect x="15" y="4" width="4" height="16" rx="1"></rect>
+            </svg>
+          </button>
+
+          <!-- Next Button -->
+          <button class="control-btn" id="nextBtn" title="Next Track">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 4 15 12 5 20 5 4"></polygon>
+              <line x1="19" y1="4" x2="19" y2="20" stroke="currentColor" stroke-width="3"></line>
+            </svg>
+          </button>
+
+          <!-- Repeat Button -->
+          <button class="control-btn mini-btn" id="repeatBtn" title="Repeat Mode">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14M7 23 3 19 7 15"></path>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+            </svg>
+            <span class="repeat-badge" id="repeatBadge">1</span>
+          </button>
+
+        </div>
+
+        <!-- Volume Section -->
+        <div class="volume-section">
+          <button class="volume-mute-btn" id="muteBtn" title="Mute/Unmute">
+            <!-- Full volume icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="vol-icon" id="volHighIcon">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <!-- Muted icon (hidden by default) -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="vol-icon hidden" id="volMuteIcon">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+          </button>
+          <div class="volume-slider-wrapper">
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="80">
+            <div class="volume-fill" id="volumeFill"></div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Expandable Playlist Drawer -->
+      <aside class="playlist-drawer" id="playlistDrawer">
+        <div class="drawer-header">
+          <h2>Your Playlist</h2>
+          <button class="close-drawer-btn" id="closeDrawerBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="playlist-source-info" id="playlistSourceInfo">
+          Playing from <strong>Cloud Network</strong>
+        </div>
+
+        <div class="playlist-items" id="playlistItems">
+          <!-- Populated Dynamically by JavaScript -->
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- HTML5 Audio Element -->
+  <audio id="audioPlayer" preload="auto"></audio>
+
+  <!-- Main JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
