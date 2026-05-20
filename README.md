@@ -1,52 +1,48 @@
-# 🎵 AetherPlayer - Premium Glassmorphic Music Experience
+# 🎵 Music Player - Elegant Dark Hi-Fi Experience
 
-AetherPlayer is an ultra-modern, high-fidelity interactive Web Music Player application designed with sleek glassmorphic card elements, dynamic floating background neon orbs, beautiful keyframe equalizers, and pixel-perfect SVG control icons. 
+A modern, minimalist, and exceptionally elegant Music Player web application designed with sleek dark card overlays, a rounded-rectangle cover frame, grayscale equalizers, and ultra-thin interactive sliders.
 
-It handles streaming music playback via CDN networks and embeds a robust **Generative Lofi Synthesizer (Web Audio API)** for cozy procedural beats that play 100% offline if no network is available.
-
----
-
-## ✨ Outstanding Features
-
-- **Glassmorphic Design Aesthetics**: Soft blurred background filters (`backdrop-filter`), thin premium translucent borders, and deep floating dark mode shadow drops.
-- **Dynamic Ambient Theme Shifts**: The background ambient neon orbs and glowing shadows transition color palettes dynamically to match the active song's visual genre (Cyberpunk Neon Pink, Synthwave Sunset Orange, and Lofi Space Green/Indigo).
-- **Procedural Offline Synthesizer**: Toggling **Synth Mode** runs a customized Web Audio API engine. It schedules rich triangle wave chord progressions, deep sine wave drum kicks, and light pentatonic sine wave lead melodies generated procedurally in real-time.
-- **Micro-Animations & Visualizers**: 
-  - Smooth keyframe-driven equalizers and speaker wave representations.
-  - Floating glowing music notes (`♫`, `♪`, `♬`, `♩`) that drift upwards when tracks play.
-  - Rotating vinyl album artwork when active.
-- **Advanced Playback Controls**: Full seek-bar scrub controls (with timing tooltips), double-click / mute-toggle volume management, loop/repeat configurations (None, Repeat Single, Repeat All), and shuffle patterns.
-- **Tactile Keyboard Shortcuts**: Support for quick physical key controls for full accessibility.
+It features direct playback support for audio tracks and embeds an advanced **procedural offline synthesizer (Web Audio API)** to generate cozy, high-fidelity ambient drum loops and chord pads when offline.
 
 ---
 
-## ⌨️ Premium Keyboard Shortcuts
+## ✨ Features
 
-Enjoy physical keyboard controls for a highly tactile experience:
+- **Minimalist & Elegant Carbon-Matte Design**: Refined dark charcoal body card background (`#161619`) set against a solid deep black backdrop (`#0b0b0c`) with thin borders.
+- **Rounded-Rectangle Artwork Frame**: A static, elegant square card layout similar to modern streaming platforms (Spotify/Apple Music).
+- **Subtle Titanium Highlights**: Dynamic accent adjustments are restrained to solid titanium whites and muted ambers or greens.
+- **Micro-Visualizers**: Translucent grayscale equalizer columns that react beautifully to active tracks.
+- **Generative Offline Synthesizer**: Generates cozily repeating triangle-wave chord pads, pure sine-wave bass drum sweeps, white noise brush snares, and melodic pentatonic scales procedurally in real-time.
+- **Tactile Controls**: Integrated range input slide heads that reveal an active white marker point only on hover.
+- **Accessible Keyboard Commands**: Standard physical keys to handle all controls (e.g. Spacebar to Play, arrows to seek/volume).
+
+---
+
+## ⌨️ Keyboard Shortcuts
 
 | Key Command | Action |
 |---|---|
-| **Spacebar** | Play / Pause |
-| **Arrow Up** / **Arrow Down** | Adjust Volume (Up/Down 5%) |
-| **Arrow Right** / **Arrow Left** | Seek Audio Forward / Backward 5 seconds |
+| **Spacebar** | Play / Pause Toggle |
+| **Arrow Up** / **Arrow Down** | Increase / Decrease Volume |
+| **Arrow Right** / **Arrow Left** | Skip Audio Forward / Backward 5s |
 | **Ctrl + Arrow Right** / **Ctrl + Arrow Left** | Next / Previous Track |
 | **M** | Mute / Unmute Toggle |
-| **S** | Toggle Shuffle Play |
-| **R** | Toggle Repeat Mode (None / Repeat One / Repeat All) |
-| **P** | Open / Close Playlist Drawer |
+| **S** | Shuffle Play Toggle |
+| **R** | Cycle Repeat (None / Single Track / Entire List) |
+| **P** | Slide Playlist Drawer Up / Down |
 
 ---
 
 ## 📁 File Structure
 
 ```text
-├── index.html          # Semantic HTML markup & SVG icons
-├── style.css           # Glassmorphic layout, sliders, themes, and keyframe animations
-├── script.js           # State controller, playlist logic, and Web Audio API synthesizer
+├── index.html          # Clean HTML structure & custom SVG icons
+├── style.css           # Carbon-matte card shapes, thin playheads, and visualizers
+├── script.js           # Media engine controller & Web Audio API synthesizer
 ├── assets/
-│   ├── cover1.png      # Cyberpunk Album Cover Art (AI-Generated)
-│   ├── cover2.png      # Synthwave Album Cover Art (AI-Generated)
-│   └── cover3.png      # Lofi Space Album Cover Art (AI-Generated)
+│   ├── cover1.png      # AI-Generated custom album cover art (Theme 1)
+│   ├── cover2.png      # AI-Generated custom album cover art (Theme 2)
+│   └── cover3.png      # AI-Generated custom album cover art (Theme 3)
 └── README.md           # Documentation and shortcut guide
 ```
 
@@ -54,15 +50,10 @@ Enjoy physical keyboard controls for a highly tactile experience:
 
 ## 🚀 Getting Started
 
-Since the player is built using pure **HTML5, CSS3, and modern vanilla ES6 JavaScript**, it has zero third-party framework dependencies.
+Simply double-click [index.html](file:///Users/sajjadhossainjim/Downloads/CodeAlpha_Music-Player/index.html) to open the player in any modern web browser. 
 
-1. Double-click [index.html](file:///Users/sajjadhossainjim/Downloads/CodeAlpha_Music-Player/index.html) to run it directly inside any modern web browser (Chrome, Safari, Firefox, Edge).
-2. Or run a simple local server in this directory:
-   ```bash
-   # Python 3
-   python3 -m http.server 8000
-   
-   # Node.js
-   npx serve .
-   ```
-   Open `http://localhost:8000` in your web browser.
+Or host a local server inside this folder:
+```bash
+python3 -m http.server 8000
+```
+Open `http://localhost:8000` to enjoy your Music Player.

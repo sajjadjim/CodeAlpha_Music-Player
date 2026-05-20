@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AETHERPLAYER - AUDIO LOGIC & STATE ENGINE
+   MUSIC PLAYER - CORE AUDIO ENGINE
    ========================================================================== */
 
 // --------------------------------------------------------------------------
@@ -9,7 +9,7 @@ const TRACKS_PLAYLIST = [
   {
     id: 0,
     title: "Neon Odyssey",
-    artist: "Aether Drive",
+    artist: "Minimal Echo",
     genre: "Synthwave",
     cover: "assets/cover1.png",
     // Standard high-quality test audio tracks
